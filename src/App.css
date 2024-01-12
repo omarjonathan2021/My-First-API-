@@ -1,19 +1,319 @@
-/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .App {
+  position: relative;
+}
+
+:root {
+  --main-blue: #00253a;
+  --main-green: #2e933c;
+  --white: #ffffff;
+}
+
+
+
+/* Map */
+.map-h2 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 20px;
+  padding-left: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.google-map {
+  width: 100%;
+  height: 60vh;
 }
 
-.App-header {
-  background-color: #282c34;
+.pin {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  color: var(--main-blue);
+}
+
+.pin-icon {
+  font-size: 4rem;
+}
+
+.pin-text {
+  font-size: 1.3em;
+}
+
+@media screen and (min-width: 799px) {
+  .google-map {
+    height: 80vh;
+  }
+
+  .map-h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .pin {
+    width: 15vw;
+  }
+
+  .pin-icon {
+    font-size: 10vw;
+  }
+}
+
+
+
+/* intro */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--main-blue);
+  color: var(--white);
+  height: 40vh;
   padding: 20px;
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.intro-h2 {
+  margin: 0;
+}
+
+.intro-p {
+  max-width: 85vw;
+}
+
+@media screen and (min-width: 699px) {
+  .intro-container {
+    justify-content: start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10%;
+    height: 25vh;
+  }
+
+  .intro-p {
+    max-width: 450px;
+  }
+}
+
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--main-blue);
+  color: var(--white);
+  padding-right: 10px;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 699px) {
+  .footer {
+    padding-right: 40px;
+  }
+}
+
+/* disclaimer */
+.disclaimer {
+  padding: 20px 40px;
+  text-align: center;
+}
+
+@media screen and (min-width: 799px) {
+  .disclaimer-p {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+/* info */
+.info {
+  text-align: left;
+  padding: 20px;
+  background-color: var(--main-green);
+  color: var(--white);
+}
+
+.info-h2 {
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0;
+}
+
+.info-details-container {
+  margin: 40px 0;
+}
+
+.info-detail {
+  font-weight: 600;
+}
+
+.info-icons-container {
+  display: flex;
+  width: 100%;
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 699px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .info-detail {
+    line-height: 2;
+  }
+}
+
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.form-h2 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.form-label {
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.form-input,
+.form-textarea {
+  display: block;
+  margin-top: 5px;
+  font-size: 1rem;
+  width: calc(100% - 20px);
+  border: 1px solid var(--main-blue);
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.form-textarea {
+  height: 250px;
+}
+
+.form-textarea::placeholder {
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+}
+
+.form-submit {
+  justify-self: end;
+  font-size: 5rem;
+  color: var(--main-green);
+}
+
+@media screen and (min-width: 799px) {
+  .form {
+    display: grid;
+    grid-template-areas:
+      'header .'
+      'name message'
+      'tel message'
+      'email submit';
+    align-items: start;
+    align-content: space-between;
+    justify-content: unset;
+    gap: 0.5vw 1vw;
+    padding: 40px;
+  }
+
+  .form-h2 {
+    grid-area: header;
+    text-align: left;
+  }
+
+  .form-label {
+    margin: 0;
+  }
+
+  #name {
+    grid-area: name;
+  }
+  #email {
+    grid-area: email;
+  }
+  #tel {
+    grid-area: tel;
+  }
+
+  #message {
+    grid-area: message;
+    height: 100%;
+  }
+
+  .form-textarea {
+    height: 150px;
+  }
+
+  .form-submit {
+    grid-area: submit;
+  }
+}
+
+
+/* contact section */
+.contact-section {
+  background-color: var(--white);
+  width: 100%;
+}
+
+@media screen and (min-width: 799px) {
+  .contact-section {
+    --offset-height: -100px;
+
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    width: 80vw;
+    height: 475px;
+    margin: 0 auto;
+    top: var(--offset-height);
+    left: 50%;
+    margin-left: -40vw;
+    margin-bottom: var(--offset-height);
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
+  }
 }
